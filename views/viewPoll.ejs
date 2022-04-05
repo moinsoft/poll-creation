@@ -30,7 +30,7 @@
 
                 <% for( let option of poll.options) { %>
                   <div class="custom-control custom-radio">
-                    <input type="radio" name="option" id="<%= option._id %>" class="custom-control-input" value="<%= option.name %>">
+                    <input type="radio" name="option" id="<%= option._id %>" class="custom-control-input" value="<%= option._id %>">
                     <label for="<%= option._id %>" class="custom-control-label"> <%= option.name %></label>
                   </div>
                 <% } %>
