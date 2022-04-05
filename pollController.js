@@ -41,3 +41,15 @@ exports.getAllPolls = async (req, res, next) => {
     console.log(e);
   }
 }
+
+
+exports.viewPollGetController = async (req, res, next) => {
+  let id = req.params.id
+
+  try {
+    let poll = await Poll.findById(id)
+    res.render('viewPoll', { poll })
+  } catch (e) {
+    console.log(e);
+  }
+}

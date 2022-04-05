@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Put Your Opinion</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  </head>
+  <body>
+
+
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-6 offset-md-3 my-5">
+          <div class="card card-body">
+
+            <h5>Title: <%= poll.title %> </h5>
+            <p>Description: <%= poll.description %> </p>
+
+            <div class="my-3">
+              Result
+            </div>
+            
+            <div>
+              <h5>What is Your Opinion?</h5>
+              <form action="/polls/<%= poll._id %>" method="POST">
+
+                <% for( let option of poll.options) { %>
+                  <div class="custom-control custom-radio">
+                    <input type="radio" name="option" id="<%= option._id %>" class="custom-control-input" value="<%= option.name %>">
+                    <label for="<%= option._id %>" class="custom-control-label"> <%= option.name %></label>
+                  </div>
+                <% } %>
+
+                <input type="submit" value="Submit Your Opinion" class="btn btn-primary mt-3">
+
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
