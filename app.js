@@ -17,6 +17,8 @@ app.use(express.json())
 app.get('/create', pollController.createPollGetController)
 app.post('/create', pollController.createPollPostController)
 
+app.get('/polls', pollController.getAllPolls)
+
 app.get('/', (req, res) => {
   res.render('home')
 });
