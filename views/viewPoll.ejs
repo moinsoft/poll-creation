@@ -21,7 +21,17 @@
             <p>Description: <%= poll.description %> </p>
 
             <div class="my-3">
-              Result
+
+              <h5>Result: </h5>
+
+              <ul class="list-group">
+                <% for( let r of result) { %>
+                  <li class="list-group-item">
+                    <h5 class="mb-0 text-success"> <%= r.name %> &#x2192; <%= r.percentage.toFixed(2) %> % </h5>
+                  </li>
+                <% } %>
+              </ul>
+
             </div>
             
             <div>
