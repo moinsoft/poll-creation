@@ -1,7 +1,10 @@
 const Poll = require('./Poll');
 
 exports.createPollGetController = (req, res, next) => {
-  res.render('create')
+  const title = 'Create New Poll'
+  
+
+  res.render('create', { title })
 }
 
 
@@ -34,9 +37,11 @@ exports.createPollPostController = async (req, res, next) => {
 }
 
 exports.getAllPolls = async (req, res, next) => {
+  const title = 'Your Created Polls'
+
   try {
     let polls = await Poll.find()
-    res.render('polls', { polls })
+    res.render('polls', { polls, title })
   } catch (e) {
     console.log(e);
   }
@@ -44,6 +49,7 @@ exports.getAllPolls = async (req, res, next) => {
 
 
 exports.viewPollGetController = async (req, res, next) => {
+  const title = 'Put Your Opinion'
   let id = req.params.id
 
   try {
@@ -59,7 +65,7 @@ exports.viewPollGetController = async (req, res, next) => {
       })
     })
 
-    res.render('viewPoll', { poll, result })
+    res.render('viewPoll', { poll, result, title })
 
   } catch (e) {
     console.log(e);

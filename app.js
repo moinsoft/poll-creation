@@ -22,7 +22,8 @@ app.post('/polls/:id', pollController.viewPollPostController)
 app.get('/polls', pollController.getAllPolls)
 
 app.get('/', (req, res) => {
-  res.render('home')
+  const title = 'Home | Oops , There Is Nothing To Show'
+  res.render('home', { title })
 });
 
 
